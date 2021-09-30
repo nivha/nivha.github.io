@@ -81,25 +81,24 @@
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <!-- <div class="two" id='vgpnn_vid'> -->
-					<!-- <video  width=100% height=100% muted autoplay loop> -->
-						<!-- <source src="images/vgpnn.mp4" style="background-color: white;" type="video/mp4"> -->
-						<!-- Your browser does not support the video tag. -->
-					<!-- </video> -->
-				<!-- </div> -->
-                <img src='images/vgpnn.png' width="160" id="vgpnn_image">
+									<div class="two" id='vgpnn_vid'>
+										<video  width=100% height=100% muted autoplay loop>
+											<source src="images/vgpnn.mp4" style="background-color: white;" type="video/mp4">
+											Your browser does not support the video tag.
+										</video>
+									</div>
               </div>
               <script type="text/javascript">
-			  var bibtex_vgpnn = ""
-                <!-- function vgpnn_start() { -->
-                  <!-- document.getElementById('vgpnn_image').style.display = 'none'; -->
-				  <!-- document.getElementById('vgpnn_vid').style.display = 'inline'; -->
-                <!-- } -->
-                <!-- function vgpnn_stop() { -->
-                  <!-- document.getElementById('vgpnn_image').style.display = 'inline'; -->
-				  <!-- document.getElementById('vgpnn_vid').style.display = 'none'; -->
-                <!-- } -->
-                <!-- vgpnn_stop() -->
+								var bibtex_vgpnn = "@article{haim2021diverse,\ntitle={Diverse Generation from a Single Video Made Possible},\nauthor={Haim, Niv and Feinstein, Ben and Granot, Niv and Shocher, Assaf and Bagon, Shai and Dekel, Tali and Irani, Michal},\njournal={arXiv preprint arXiv:2109.08591},\nyear={2021}\n}"
+												<!-- function vgpnn_start() { -->
+													<!-- document.getElementById('vgpnn_image').style.display = 'none'; -->
+									<!-- document.getElementById('vgpnn_vid').style.display = 'inline'; -->
+												<!-- } -->
+												<!-- function vgpnn_stop() { -->
+													<!-- document.getElementById('vgpnn_image').style.display = 'inline'; -->
+									<!-- document.getElementById('vgpnn_vid').style.display = 'none'; -->
+												<!-- } -->
+												<!-- vgpnn_stop() -->
               </script>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
@@ -118,10 +117,10 @@
               <em>Technical Report</em>, 2021
               <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Most advanced video generation and manipulation methods train on a large collection of videos. As such, they are restricted to the types of video dynamics they train on. To overcome this limitation, GANs trained on a single video were recently proposed. While these provide more flexibility to a wide variety of video dynamics, they require days to train on a single tiny input video, rendering them impractical. In this paper we present a fast and practical method for video generation and manipulation from a single natural video, which generates diverse high-quality video outputs within seconds (for benchmark videos). Our method can be further applied to full-HD video clips within minutes. Our approach is inspired by a recent advanced patch-nearest-neighbor based approach [Granot et al., 2021], which was shown to significantly outperform single-image GANs, both in run-time and in visual quality. Here we generalize this approach from images to videos, by casting classical space-time patch-based methods as a new generative video model. We adapt the generative image patch nearest neighbor approach to efficiently cope with the huge number of space-time patches in a single video. Our method generates more realistic and higher quality results than single-video GANs (confirmed by quantitative and qualitative evaluations). Moreover, it is disproportionally faster (runtime reduced from several days to seconds). Other than diverse video generation, we demonstrate several other challenging video applications, including spatio-temporal video retargeting (e.g., video extension & video summarization), video structural analogies and conditional video-inpainting.</span></div>
-				<a href="http://arxiv.org/abs/2109.08591"><button>ArXiv</button></a>
 				<a href="https://nivha.github.io/vgpnn/"><button>Project Page</button></a>
-				<!-- <button onclick=copyToClipboard(bibtex_vgpnn)>bibtex</button> -->
+				<a href="http://arxiv.org/abs/2109.08591"><button>ArXiv</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Most advanced video generation and manipulation methods train on a large collection of videos. As such, they are restricted to the types of video dynamics they train on. To overcome this limitation, GANs trained on a single video were recently proposed. While these provide more flexibility to a wide variety of video dynamics, they require days to train on a single tiny input video, rendering them impractical. In this paper we present a fast and practical method for video generation and manipulation from a single natural video, which generates diverse high-quality video outputs within seconds (for benchmark videos). Our method can be further applied to full-HD video clips within minutes. Our approach is inspired by a recent advanced patch-nearest-neighbor based approach [Granot et al., 2021], which was shown to significantly outperform single-image GANs, both in run-time and in visual quality. Here we generalize this approach from images to videos, by casting classical space-time patch-based methods as a new generative video model. We adapt the generative image patch nearest neighbor approach to efficiently cope with the huge number of space-time patches in a single video. Our method generates more realistic and higher quality results than single-video GANs (confirmed by quantitative and qualitative evaluations). Moreover, it is disproportionally faster (runtime reduced from several days to seconds). Other than diverse video generation, we demonstrate several other challenging video applications, including spatio-temporal video retargeting (e.g., video extension & video summarization), video structural analogies and conditional video-inpainting.</span></div>
+				<button onclick=copyToClipboard(bibtex_vgpnn)>bibtex</button>
 				</div>
               <p></p>
             </td>
@@ -165,8 +164,8 @@
               <em>Technical Report</em>, 2020
               <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">A basic operation in Convolutional Neural Networks (CNNs) is spatial resizing of feature maps. This is done either by strided convolution (donwscaling) or transposed convolution (upscaling). Such operations are limited to a fixed filter moving at predetermined integer steps (strides). Spatial sizes of consecutive layers are related by integer scale factors, predetermined at architectural design, and remain fixed throughout training and inference time. We propose a generalization of the common Conv-layer, from a discrete layer to a Continuous Convolution (CC) Layer. CC Layers naturally extend Conv-layers by representing the filter as a learned continuous function over sub-pixel coordinates. This allows learnable and principled resizing of feature maps, to any size, dynamically and consistently across scales. Once trained, the CC layer can be used to output any scale/size chosen at inference time. The scale can be non-integer and differ between the axes. CC gives rise to new freedoms for architectural design, such as dynamic layer shapes at inference time, or gradual architectures where the size changes by a small factor at each layer. This gives rise to many desired CNN properties, new architectural design capabilities, and useful applications. We further show that current Conv-layers suffer from inherent misalignments, which are ameliorated by CC layers.</span></div>
 				<a href="https://arxiv.org/abs/2006.11120"><button>ArXiv</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">A basic operation in Convolutional Neural Networks (CNNs) is spatial resizing of feature maps. This is done either by strided convolution (donwscaling) or transposed convolution (upscaling). Such operations are limited to a fixed filter moving at predetermined integer steps (strides). Spatial sizes of consecutive layers are related by integer scale factors, predetermined at architectural design, and remain fixed throughout training and inference time. We propose a generalization of the common Conv-layer, from a discrete layer to a Continuous Convolution (CC) Layer. CC Layers naturally extend Conv-layers by representing the filter as a learned continuous function over sub-pixel coordinates. This allows learnable and principled resizing of feature maps, to any size, dynamically and consistently across scales. Once trained, the CC layer can be used to output any scale/size chosen at inference time. The scale can be non-integer and differ between the axes. CC gives rise to new freedoms for architectural design, such as dynamic layer shapes at inference time, or gradual architectures where the size changes by a small factor at each layer. This gives rise to many desired CNN properties, new architectural design capabilities, and useful applications. We further show that current Conv-layers suffer from inherent misalignments, which are ameliorated by CC layers.</span></div>
 				<button onclick=copyToClipboard(bibtex_cc)>bibtex</button>
 				</div>
               <p>Learning continuous convolution kernels improve translation equivariance and allow test time scales augmentations</p>
@@ -196,10 +195,10 @@
               <em>ICML</em>, 2020
 			  <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Representing shapes as level sets of neural networks has been recently proved to be useful for different shape analysis and reconstruction tasks. So far, such representations were computed using either: (i) pre-computed implicit shape representations; or (ii) loss functions explicitly defined over the neural level sets. In this paper we offer a new paradigm for computing high fidelity implicit neural representations directly from raw data (i.e., point clouds, with or without normal information). We observe that a rather simple loss function, encouraging the neural network to vanish on the input point cloud and to have a unit norm gradient, possesses an implicit geometric regularization property that favors smooth and natural zero level set surfaces, avoiding bad zero-loss solutions. We provide a theoretical analysis of this property for the linear case, and show that, in practice, our method leads to state of the art implicit neural representations with higher level-of-details and fidelity compared to previous methods.</span></div>
 				<a href="https://arxiv.org/abs/2002.10099"><button>ArXiv</button></a>
 				<a href="https://github.com/amosgropp/IGR"><button>GitHub</button></a>
 				<a href="https://www.youtube.com/watch?v=6cOvBGBQF9g"><button>Video</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Representing shapes as level sets of neural networks has been recently proved to be useful for different shape analysis and reconstruction tasks. So far, such representations were computed using either: (i) pre-computed implicit shape representations; or (ii) loss functions explicitly defined over the neural level sets. In this paper we offer a new paradigm for computing high fidelity implicit neural representations directly from raw data (i.e., point clouds, with or without normal information). We observe that a rather simple loss function, encouraging the neural network to vanish on the input point cloud and to have a unit norm gradient, possesses an implicit geometric regularization property that favors smooth and natural zero level set surfaces, avoiding bad zero-loss solutions. We provide a theoretical analysis of this property for the linear case, and show that, in practice, our method leads to state of the art implicit neural representations with higher level-of-details and fidelity compared to previous methods.</span></div>
 				<button onclick=copyToClipboard(bibtex_igr)>bibtex</button>
 				</div>
               <p>Using an "Eikonal regularization" term with implicit neural representation works surprisingly well for modelling complex surfaces</p>
@@ -229,10 +228,10 @@
               <em>NeurIPS</em>, 2019
 			  <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">The level sets of neural networks represent fundamental properties such as decision boundaries of classifiers and are used to model non-linear manifold data such as curves and surfaces. Thus, methods for controlling the neural level sets could find many applications in machine learning. In this paper we present a simple and scalable approach to directly control level sets of a deep neural network. Our method consists of two parts: (i) sampling of the neural level sets, and (ii) relating the samples' positions to the network parameters. The latter is achieved by a sample network that is constructed by adding a single fixed linear layer to the original network. In turn, the sample network can be used to incorporate the level set samples into a loss function of interest. We have tested our method on three different learning tasks: improving generalization to unseen data, training networks robust to adversarial attacks, and curve and surface reconstruction from point clouds. For surface reconstruction, we produce high fidelity surfaces directly from raw 3D point clouds. When training small to medium networks to be robust to adversarial attacks we obtain robust accuracy comparable to state-of-the-art methods.</span></div>
 				<a href="https://arxiv.org/abs/1905.11911"><button>ArXiv</button></a>
 				<a href="https://github.com/matanatz/ControllingNeuralLevelsets"><button>GitHub</button></a>
 				<a href="https://github.com/matanatz/ControllingNeuralLevelsets/blob/master/Controlling_Neural_Level_Sets_Poster.pdf"><button>Poster</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">The level sets of neural networks represent fundamental properties such as decision boundaries of classifiers and are used to model non-linear manifold data such as curves and surfaces. Thus, methods for controlling the neural level sets could find many applications in machine learning. In this paper we present a simple and scalable approach to directly control level sets of a deep neural network. Our method consists of two parts: (i) sampling of the neural level sets, and (ii) relating the samples' positions to the network parameters. The latter is achieved by a sample network that is constructed by adding a single fixed linear layer to the original network. In turn, the sample network can be used to incorporate the level set samples into a loss function of interest. We have tested our method on three different learning tasks: improving generalization to unseen data, training networks robust to adversarial attacks, and curve and surface reconstruction from point clouds. For surface reconstruction, we produce high fidelity surfaces directly from raw 3D point clouds. When training small to medium networks to be robust to adversarial attacks we obtain robust accuracy comparable to state-of-the-art methods.</span></div>
 				<button onclick=copyToClipboard(bibtex_controllinglevelsets)>bibtex</button>
 				</div>
               <p>Making input points differentiable (w.r.t model parameters), and using it for shape modelling, improved robustness to adversrial examples and more</p>
@@ -261,9 +260,9 @@
               <em>ICCV</em>, 2019
 			  <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Developing deep learning techniques for geometric data is an active and fruitful research area. This paper tackles the problem of sphere-type surface learning by developing a novel surface-to-image representation. Using this representation we are able to quickly adapt successful CNN models to the surface setting. The surface-image representation is based on a covering map from the image domain to the surface. Namely, the map wraps around the surface several times, making sure that every part of the surface is well represented in the image. Differently from previous surface-to-image representations, we provide a low distortion coverage of all surface parts in a single image. Specifically, for the use case of learning spherical signals, our representation provides a low distortion alternative to several popular spherical parameterizations used in deep learning. We have used the surface-to-image representation to apply standard CNN architectures to 3D models as well as spherical signals. We show that our method achieves state of the art or comparable results on the tasks of shape retrieval, shape classification and semantic shape segmentation.</span></div>
-				<a href="https://arxiv.org/abs/1812.10705"><button>Paper</button></a>
+				<a href="https://arxiv.org/abs/1812.10705"><button>ArXiv</button></a>
 				<a href="https://github.com/nivha/surface_networks_covers"><button>GitHub</button></a>				
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Developing deep learning techniques for geometric data is an active and fruitful research area. This paper tackles the problem of sphere-type surface learning by developing a novel surface-to-image representation. Using this representation we are able to quickly adapt successful CNN models to the surface setting. The surface-image representation is based on a covering map from the image domain to the surface. Namely, the map wraps around the surface several times, making sure that every part of the surface is well represented in the image. Differently from previous surface-to-image representations, we provide a low distortion coverage of all surface parts in a single image. Specifically, for the use case of learning spherical signals, our representation provides a low distortion alternative to several popular spherical parameterizations used in deep learning. We have used the surface-to-image representation to apply standard CNN architectures to 3D models as well as spherical signals. We show that our method achieves state of the art or comparable results on the tasks of shape retrieval, shape classification and semantic shape segmentation.</span></div>
 				<button onclick=copyToClipboard(bibtex_surfacenets)>bibtex</button>
 				</div>
               <p>Transforming 3D shapes to image representation so we can feed them to off-the-shelf CNNs and do classification, human-parts segmentation and more</p>
@@ -307,9 +306,9 @@
               <em>Monthly Notices of the Royal Astronomical Society</em>, 2018
               <br>
 				<div class="btn-group">
-				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">We study close approaches in hierarchical triple systems with comparable masses using full N-body simulations, motivated by a recent model for type Ia supernovae involving direct collisions of white dwarfs (WDs). For stable hierarchical systems where the inner binary components have equal masses, we show that the ability of the inner binary to achieve very close approaches, where the separation between the components of the inner binary reaches values which are orders of magnitude smaller than the semi-major axis, can be analytically predicted from initial conditions. The rate of close approaches is found to be roughly linear with the mass of the tertiary. The rate increases in systems with unequal inner binaries by a marginal factor of ≲2 for mass ratios 0.5 &#60; m1/m2 &#62; 1 relevant for the inner white-dwarf binaries. For an average tertiary mass of ~0.3M_sun which is representative of typical M-dwarfs, the chance for clean collisions is ~1% setting challenging constraints on the collisional model for type Ia's.</span></div>
 				<a href="https://arxiv.org/abs/1803.10249"><button>ArXiv</button></a>
 				<a href="https://github.com/nivha/three_body_integration"><button>GitHub</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">We study close approaches in hierarchical triple systems with comparable masses using full N-body simulations, motivated by a recent model for type Ia supernovae involving direct collisions of white dwarfs (WDs). For stable hierarchical systems where the inner binary components have equal masses, we show that the ability of the inner binary to achieve very close approaches, where the separation between the components of the inner binary reaches values which are orders of magnitude smaller than the semi-major axis, can be analytically predicted from initial conditions. The rate of close approaches is found to be roughly linear with the mass of the tertiary. The rate increases in systems with unequal inner binaries by a marginal factor of ≲2 for mass ratios 0.5 &#60; m1/m2 &#62; 1 relevant for the inner white-dwarf binaries. For an average tertiary mass of ~0.3M_sun which is representative of typical M-dwarfs, the chance for clean collisions is ~1% setting challenging constraints on the collisional model for type Ia's.</span></div>
 				<button onclick=copyToClipboard(bibtex_extreme_approaches)>bibtex</button>
 				</div>
               <p>Ever wondered if your hierarchical three-body system will eventually collide? find out by plugging your initial conditions into our analytical prediction formula (that works with high probability)</p>
