@@ -77,6 +77,48 @@
 
 
 
+
+          <!-- <tr onmouseout="vgpnn_stop()" onmouseover="vgpnn_start()"> -->
+		  <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+					<div class="two" id='reconstruction_vid'>
+						<video  width=100% height=100% muted autoplay loop>
+							<source src="images/reconstruction.mp4" style="background-color: white;" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+              </div>
+              <script type="text/javascript">
+					var bibtex_vgpnn = "@article{haim2021diverse,\ntitle={Diverse Generation from a Single Video Made Possible},\nauthor={Haim, Niv and Feinstein, Ben and Granot, Niv and Shocher, Assaf and Bagon, Shai and Dekel, Tali and Irani, Michal},\njournal={arXiv preprint arXiv:2109.08591},\nyear={2021}\n}@article{haim2022reconstructing,\n title={Reconstructing Training Data from Trained Neural Networks}, \n author={Haim, Niv and Vardi, Gal and Yehudai, Gilad and Shamir, Ohad and Irani, Michal}, \n journal={arXiv preprint arXiv:2206.07758}, \n year={2022} \n }"
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://giladude1.github.io/reconstruction/">
+              <papertitle>Reconstructing Training Data from Trained Neural Networks</papertitle>
+              </a>
+              <br>
+				<strong>Niv Haim*</strong>,
+				<a href="https://scholar.google.co.il/citations?user=LVk3xE4AAAAJ&hl=en">Gal Vardi*</a>,
+				<a href="https://scholar.google.co.il/citations?user=opVT1qkAAAAJ&hl=iw">Gilad Yehudai*</a>,
+				<a href="https://www.wisdom.weizmann.ac.il/~shamiro/">Ohad Shamir</a>,
+				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
+              <br>
+              <em>Preprint</em>, 2022
+              <br>
+				<div class="btn-group">
+				<a href="https://giladude1.github.io/reconstruction/"><button>Project Page</button></a>
+				<a href="https://arxiv.org/abs/2206.07758"><button>ArXiv</button></a>
+				<div class="tooltip"><button>Abstract</button><span class="tooltiptext">Understanding to what extent neural networks memorize training data is an intriguing question with practical and theoretical implications. In this paper we show that in some cases a significant fraction of the training data can in fact be reconstructed from the parameters of a trained neural network classifier. We propose a novel reconstruction scheme that stems from recent theoretical results about the implicit bias in training neural networks with gradient-based methods. To the best of our knowledge, our results are the first to show that reconstructing a large portion of the actual training samples from a trained neural network classifier is generally possible. This has negative implications on privacy, as it can be used as an attack for revealing sensitive training data. We demonstrate our method for binary MLP classifiers on a few standard computer vision datasets.</span></div>
+				<button onclick=copyToClipboard(bibtex_vgpnn)>BibTeX</button>
+				</div>
+              <p></p>
+            </td>
+		</tr>
+
+
+
+
           <!-- <tr onmouseout="vgpnn_stop()" onmouseover="vgpnn_start()"> -->
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -114,7 +156,7 @@
 				<a href="https://www.weizmann.ac.il/math/dekel/">Tali Dekel</a>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
               <br>
-              <em>Technical Report</em>, 2021
+              <em>Preprint</em>, 2021
               <br>
 				<div class="btn-group">
 				<a href="https://nivha.github.io/vgpnn/"><button>Project Page</button></a>
@@ -161,7 +203,7 @@
 				<strong>Niv Haim*</strong>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
               <br>
-              <em>Technical Report</em>, 2020
+              <em>Preprint</em>, 2020
               <br>
 				<div class="btn-group">
 				<a href="https://arxiv.org/abs/2006.11120"><button>ArXiv</button></a>
