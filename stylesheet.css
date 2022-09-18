@@ -169,3 +169,9 @@ span.highlight {
   visibility: visible;
   opacity: 1;
 }
+
+button {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
