@@ -107,7 +107,6 @@
 				<a href="https://arxiv.org/abs/2211.11743">ArXiv</a> / 
 				<!-- <a href="https://github.com/nivha/dataset_reconstruction">Code</a> /  -->
 				<a href="https://yanivnik.github.io/sinfusion">Project Page</a> / 
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">Understanding to what extent neural networks memorize training data is an intriguing question with practical and theoretical implications. In this paper we show that in some cases a significant fraction of the training data can in fact be reconstructed from the parameters of a trained neural network classifier. We propose a novel reconstruction scheme that stems from recent theoretical results about the implicit bias in training neural networks with gradient-based methods. To the best of our knowledge, our results are the first to show that reconstructing a large portion of the actual training samples from a trained neural network classifier is generally possible. This has negative implications on privacy, as it can be used as an attack for revealing sensitive training data. We demonstrate our method for binary MLP classifiers on a few standard computer vision datasets.</span></div> -->
 				</div>
               <p>Diffusion models truly learn the motion and dynamics from a single video, and are able to generate videos of similar appearance with new realistic motions.</p>
             </td>
@@ -150,7 +149,6 @@
 				<a href="https://github.com/nivha/dataset_reconstruction">Code</a> / 
 				<a href="https://giladude1.github.io/reconstruction/">Project Page</a> / 
 				<a href="https://www.youtube.com/watch?v=wrOnp0WfZJ4">Video</a> 
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">Understanding to what extent neural networks memorize training data is an intriguing question with practical and theoretical implications. In this paper we show that in some cases a significant fraction of the training data can in fact be reconstructed from the parameters of a trained neural network classifier. We propose a novel reconstruction scheme that stems from recent theoretical results about the implicit bias in training neural networks with gradient-based methods. To the best of our knowledge, our results are the first to show that reconstructing a large portion of the actual training samples from a trained neural network classifier is generally possible. This has negative implications on privacy, as it can be used as an attack for revealing sensitive training data. We demonstrate our method for binary MLP classifiers on a few standard computer vision datasets.</span></div> -->
 				</div>
               <p>We show that a large portion of the training data can be reconstructed from the parameters of trained MLP binary classifiers. Our method stems from theoretical results about the implicit bias of neural networks trained with gradient descent</p>
             </td>
@@ -194,7 +192,6 @@
 				<a href="http://arxiv.org/abs/2109.08591">ArXiv</a> / 
 				<a href="https://github.com/nivha/single_video_generation">Code</a> /
 				<a href="https://nivha.github.io/vgpnn/">Project Page</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">Most advanced video generation and manipulation methods train on a large collection of videos. As such, they are restricted to the types of video dynamics they train on. To overcome this limitation, GANs trained on a single video were recently proposed. While these provide more flexibility to a wide variety of video dynamics, they require days to train on a single tiny input video, rendering them impractical. In this paper we present a fast and practical method for video generation and manipulation from a single natural video, which generates diverse high-quality video outputs within seconds (for benchmark videos). Our method can be further applied to full-HD video clips within minutes. Our approach is inspired by a recent advanced patch-nearest-neighbor based approach [Granot et al., 2021], which was shown to significantly outperform single-image GANs, both in run-time and in visual quality. Here we generalize this approach from images to videos, by casting classical space-time patch-based methods as a new generative video model. We adapt the generative image patch nearest neighbor approach to efficiently cope with the huge number of space-time patches in a single video. Our method generates more realistic and higher quality results than single-video GANs (confirmed by quantitative and qualitative evaluations). Moreover, it is disproportionally faster (runtime reduced from several days to seconds). Other than diverse video generation, we demonstrate several other challenging video applications, including spatio-temporal video retargeting (e.g., video extension & video summarization), video structural analogies and conditional video-inpainting.</span></div> -->
 				</div>
               <p>We generate diverse video samples from a single video using patch-based methods. Our results outperform single-video GANs in visual quality and are orders of magnitude faster to generate</p>
             </td>
@@ -213,7 +210,7 @@
                 <img src='images/cc.png' width="160" id="cc_image">
               </div>
               <script type="text/javascript">
-			  var bibtex_cc = "@InProceedings{Shocher_2020_arxiv_cc,\nauthor = {Shocher, Assaf and Feinstein, Ben and Haim, Niv and Irani, Michal},\ntitle = {From Discrete to Continuous Convolution Layers},\nbooktitle = arXiv,\nyear = {2020}\n}"
+			  var bibtex_cc = "@article{shocher2020discrete,\n  title={From discrete to continuous convolution layers},\n  author={Shocher, Assaf and Feinstein, Ben and Haim, Niv and Irani, Michal},\n  journal={arXiv preprint arXiv:2006.11120},\n  year={2020}\n}"
                 function cc_start() {
                   document.getElementById('cc_image').style.display = 'none';
 				  document.getElementById('cc_vid').style.display = 'inline';
@@ -240,7 +237,6 @@
 				<div class="btn-group">
 				<button onclick=copyToClipboard(bibtex_cc)>BibTeX</button> / 
 				<a href="https://arxiv.org/abs/2006.11120">ArXiv</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">A basic operation in Convolutional Neural Networks (CNNs) is spatial resizing of feature maps. This is done either by strided convolution (donwscaling) or transposed convolution (upscaling). Such operations are limited to a fixed filter moving at predetermined integer steps (strides). Spatial sizes of consecutive layers are related by integer scale factors, predetermined at architectural design, and remain fixed throughout training and inference time. We propose a generalization of the common Conv-layer, from a discrete layer to a Continuous Convolution (CC) Layer. CC Layers naturally extend Conv-layers by representing the filter as a learned continuous function over sub-pixel coordinates. This allows learnable and principled resizing of feature maps, to any size, dynamically and consistently across scales. Once trained, the CC layer can be used to output any scale/size chosen at inference time. The scale can be non-integer and differ between the axes. CC gives rise to new freedoms for architectural design, such as dynamic layer shapes at inference time, or gradual architectures where the size changes by a small factor at each layer. This gives rise to many desired CNN properties, new architectural design capabilities, and useful applications. We further show that current Conv-layers suffer from inherent misalignments, which are ameliorated by CC layers.</span></div> -->
 				</div>
               <p>Learning continuous convolution kernels improve translation equivariance and allow test time scales augmentations</p>
             </td>
