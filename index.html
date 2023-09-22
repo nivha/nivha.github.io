@@ -16,9 +16,10 @@
 		gtag('config', 'G-MVYYQHNEK7');
 	</script>
   
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
   <script>
 	const copyToClipboard = str => {
 	  const el = document.createElement('textarea');
@@ -41,13 +42,16 @@
           <tr style="padding:0px">
             <td style="padding:2.5%;width:63%;vertical-align:middle">
               <p style="text-align:center"><name>Niv Haim</name></p>
-              <p>I recently graduated with a Ph.d. from the <a href="https://www.weizmann.ac.il/pages/">Weizmann Institute of Science</a>, advised by <a href="https://www.weizmann.ac.il/math/irani/">Prof. Michal Irani</a>.
+							<br>
+              <p>I recently graduated with a Ph.D. from the <a href="https://www.weizmann.ac.il/pages/">Weizmann Institute of Science</a>, advised by <a href="https://www.weizmann.ac.il/math/irani/">Prof. Michal Irani</a>.
                 I work on machine learning and computer vision, with a focus on studying memorization in neural networks.
 							</p>
+							<br>
 							<p> I did my Msc. in theoretical astrophysics, advised by <a href="https://www.weizmann.ac.il/particle/katz/">Prof. Boaz Katz</a>, 
 								and worked with <a href="http://www.wisdom.weizmann.ac.il/~ylipman/">Prof. Yaron Lipman</a> on Geometric Deep Learning. 
 								I received my BSc. in computer science and physics from the <a href="https://www.technion.ac.il/en/home-2/">Technion</a> (<a href="https://lapidim.cs.technion.ac.il/">Lapidim excellence program</a> alumnus)
 							</p>
+							<br>
               <p style="text-align:center">
                 <a href="mailto:nivhaa@gmail.com">Email</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=f7SCiakAAAAJ">Google Scholar</a> &nbsp/&nbsp
@@ -80,6 +84,47 @@
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
+					<div class="two" id='decoreco_vid'>
+					  <img width=100% height=100% src="images/multi_rec.png" style="background-color: white;">
+					</div>
+              </div>
+              <script type="text/javascript">
+					var bibtex_decoreco = "@article{buzaglo2023deconstructing,\n  title={Deconstructing Data Reconstruction: Multiclass, Weight Decay and General Losses},\n  author={Buzaglo, Gon and Haim, Niv and Yehudai, Gilad and Vardi, Gal and Oz, Yakir\nand Nikankin, Yaniv and Irani, Michal},\n  journal={arXiv preprint arXiv:2307.01827},\n  year={2023}\n}"
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://arxiv.org/abs/2307.01827">
+              <papertitle>Deconstructing Data Reconstruction: Multiclass, Weight Decay and General Losses</papertitle>
+              </a>
+              <br>
+				<a href="https://scholar.google.com/citations?user=YZHL8N0AAAAJ">Gon Buzaglo*</a>,
+				<strong>Niv Haim*</strong>,
+				<a href="https://scholar.google.com/citations?user=opVT1qkAAAAJ">Gilad Yehudai</a>,
+				<a href="https://scholar.google.com/citations?user=LVk3xE4AAAAJ">Gal Vardi</a>,
+				<a href="https://www.linkedin.com/in/yakir-oz-443aab172">Yakir Oz</a>,
+				<a href="https://github.com/yanivnik/">Yaniv Nikankin</a>,
+				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
+        <!-- <div class="conf"> NeurIPS, 2023 </div> -->
+				<br><div class="tag is-dark is-normal">NeurIPS 2023</div>
+				<div class="btn-group">
+				<a onclick=copyToClipboard(bibtex_decoreco)>BibTeX</a> / 
+				<a href="https://arxiv.org/abs/2307.01827">ArXiv</a>
+				<!-- <a href="">Code</a> /  -->
+				<!-- <a href="">Project Page</a> /  -->
+				<br>
+				Training set reconstruction from multiclass classifiers and models trained with regression loss with some inriguing observations on the implications of weight decay on reconstructability.
+				<br>(Earlier version appeared in <a href="https://openreview.net/forum?id=SBstNm4OajH">ICLR Workshop on Trustworthy ML, 2023</a>)
+				</div>
+            </td>
+		</tr>
+
+
+
+
+
+		  <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
 					<div class="two" id='sinfusion_vid'>
 						<video  width=100% height=100% muted autoplay loop>
 							<source src="images/sinfusion.mp4" style="background-color: white;" type="video/mp4">
@@ -99,22 +144,21 @@
 			  	<a href="https://github.com/yanivnik/">Yaniv Nikankin*</a>,
 				<strong>Niv Haim*</strong>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
-              <br>
-              <em>International Conference on Machine Learning (ICML)</em>, 2023
-              <br>
+        <br><div class="tag is-dark is-normal">ICML 2023</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_sinfusion)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_sinfusion)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2211.11743">ArXiv</a> / 
 				<a href="https://github.com/yanivnik/sinfusion-code">Code</a> / 
 				<a href="https://yanivnik.github.io/sinfusion">Project Page</a> 
+				<br> Diffusion models can be trained on a single image or video, giving rise to diverse video generation and extrapolation.
 				</div>
-              <p>Diffusion models can be trained on a single image or video, giving rise to diverse video generation and extrapolation.</p>
+              
             </td>
 		</tr>
 
 
 
-		  <tr>
+<!-- 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
 					<div class="two" id='multi_reconstruction_vid'>
@@ -139,15 +183,13 @@
               <em>ICLR Workshop on Pitfalls of limited data and computation for Trustworthy ML</em>, 2023
               <br>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_multi_reconstruction)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_multi_reconstruction)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2305.03350">ArXiv</a> 
-				<!-- <a href="https://github.com/nivha/dataset_reconstruction">Code</a> /  -->
-				<!-- <a href="https://giladude1.github.io/reconstruction/">Project Page</a> /  -->
 				</div>
               <p>Extends reconstruction from Multiclass classifiers and show some intriguing implications of weight decay on the ability to reconstruct training data</p>
             </td>
 		</tr>
-
+ -->
 
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -173,17 +215,16 @@
 				<a href="https://scholar.google.co.il/citations?user=opVT1qkAAAAJ&hl=iw">Gilad Yehudai*</a>,
 				<a href="https://www.wisdom.weizmann.ac.il/~shamiro/">Ohad Shamir</a>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022 [<b> Oral Presentation </b>]
-              <br>
+				<!-- <div class="conf"> NeurIPS, 2022  [<b>Oral Presentation</b>] </div> -->
+				<br><div class="tag is-dark is-normal">NeurIPS 2022</div><span class="tag is-warning">Oral</span>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_reconstruction)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_reconstruction)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2206.07758">ArXiv</a> / 
 				<a href="https://github.com/nivha/dataset_reconstruction">Code</a> / 
 				<a href="https://giladude1.github.io/reconstruction/">Project Page</a> / 
 				<a href="https://www.youtube.com/watch?v=wrOnp0WfZJ4">Video</a> 
+				<br> We show that a large portion of the training data can be reconstructed from the parameters of trained MLP binary classifiers. Our method stems from theoretical results about the implicit bias of neural networks trained with gradient descent
 				</div>
-              <p>We show that a large portion of the training data can be reconstructed from the parameters of trained MLP binary classifiers. Our method stems from theoretical results about the implicit bias of neural networks trained with gradient descent</p>
             </td>
 		</tr>
 
@@ -217,18 +258,17 @@
 				<a href="https://www.weizmann.ac.il/math/bagon/home">Shai Bagon</a>,
 				<a href="https://www.weizmann.ac.il/math/dekel/">Tali Dekel</a>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
-              <br>
-              <em>European Conference on Computer Vision (ECCV)</em>, 2022
-			  <br>
-			  <em> (Extended abstract appeared at AI For Content Creation Workshop @ CVPR</em>, 2022)
-              <br>
+				<!-- European Conference on Computer Vision (ECCV), 2022 -->
+        <br><div class="tag is-dark is-normal">ECCV 2022</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_vgpnn)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_vgpnn)>BibTeX</a> / 
 				<a href="http://arxiv.org/abs/2109.08591">ArXiv</a> / 
 				<a href="https://github.com/nivha/single_video_generation">Code</a> /
 				<a href="https://nivha.github.io/vgpnn/">Project Page</a>
+				<br> We generate diverse video samples from a single video using patch-based methods. Our results outperform single-video GANs in visual quality and are orders of magnitude faster to generate 
+				<br> (Extended abstract appeared at AI For Content Creation Workshop @ CVPR, 2022)
 				</div>
-              <p>We generate diverse video samples from a single video using patch-based methods. Our results outperform single-video GANs in visual quality and are orders of magnitude faster to generate</p>
+              
             </td>
 		</tr>
 
@@ -270,10 +310,10 @@
               <em>Preprint</em>, 2020
               <br>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_cc)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_cc)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2006.11120">ArXiv</a>
+				<br> Learning continuous convolution kernels improve translation equivariance and allow test time scales augmentations
 				</div>
-              <p>Learning continuous convolution kernels improve translation equivariance and allow test time scales augmentations</p>
             </td>
 		</tr>
 
@@ -296,17 +336,15 @@
 				<strong>Niv Haim</strong>,
 				<a href="https://matanatz.github.io/">Matan Atzmon</a>,
 				<a href="http://www.wisdom.weizmann.ac.il/~ylipman/">Yaron Lipman</a>
-              <br>
-              <em>International Conference on Machine Learning (ICML)</em>, 2020
-			  <br>
+        <!-- <em>International Conference on Machine Learning (ICML)</em>, 2020 -->
+			  <br><div class="tag is-dark is-normal">ICML 2020</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_igr)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_igr)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2002.10099">ArXiv</a> /
 				<a href="https://github.com/amosgropp/IGR">Code</a> /
 				<a href="https://www.youtube.com/watch?v=6cOvBGBQF9g">Video</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">Representing shapes as level sets of neural networks has been recently proved to be useful for different shape analysis and reconstruction tasks. So far, such representations were computed using either: (i) pre-computed implicit shape representations; or (ii) loss functions explicitly defined over the neural level sets. In this paper we offer a new paradigm for computing high fidelity implicit neural representations directly from raw data (i.e., point clouds, with or without normal information). We observe that a rather simple loss function, encouraging the neural network to vanish on the input point cloud and to have a unit norm gradient, possesses an implicit geometric regularization property that favors smooth and natural zero level set surfaces, avoiding bad zero-loss solutions. We provide a theoretical analysis of this property for the linear case, and show that, in practice, our method leads to state of the art implicit neural representations with higher level-of-details and fidelity compared to previous methods.</span></div> -->
+				<br> Using an "Eikonal regularization" term with implicit neural representation works surprisingly well for modelling complex surfaces
 				</div>
-              <p>Using an "Eikonal regularization" term with implicit neural representation works surprisingly well for modelling complex surfaces</p>
             </td>
           </tr>
 
@@ -329,17 +367,14 @@
 				Ofer Israelov,
 				<a href="https://haggaim.github.io/">Haggai Maron</a>,
 				<a href="http://www.wisdom.weizmann.ac.il/~ylipman/">Yaron Lipman</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2019
-			  <br>
+				<br><div class="tag is-dark is-normal">NeurIPS 2019</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_controllinglevelsets)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_controllinglevelsets)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/1905.11911">ArXiv</a> /
 				<a href="https://github.com/matanatz/ControllingNeuralLevelsets">Code</a> /
 				<a href="https://github.com/matanatz/ControllingNeuralLevelsets/blob/master/Controlling_Neural_Level_Sets_Poster.pdf">Poster</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">The level sets of neural networks represent fundamental properties such as decision boundaries of classifiers and are used to model non-linear manifold data such as curves and surfaces. Thus, methods for controlling the neural level sets could find many applications in machine learning. In this paper we present a simple and scalable approach to directly control level sets of a deep neural network. Our method consists of two parts: (i) sampling of the neural level sets, and (ii) relating the samples' positions to the network parameters. The latter is achieved by a sample network that is constructed by adding a single fixed linear layer to the original network. In turn, the sample network can be used to incorporate the level set samples into a loss function of interest. We have tested our method on three different learning tasks: improving generalization to unseen data, training networks robust to adversarial attacks, and curve and surface reconstruction from point clouds. For surface reconstruction, we produce high fidelity surfaces directly from raw 3D point clouds. When training small to medium networks to be robust to adversarial attacks we obtain robust accuracy comparable to state-of-the-art methods.</span></div> -->
+				<br> Making input points differentiable (w.r.t model parameters), and using it for shape modelling, improved robustness to adversrial examples and more
 				</div>
-              <p>Making input points differentiable (w.r.t model parameters), and using it for shape modelling, improved robustness to adversrial examples and more</p>
             </td>
           </tr>
 
@@ -361,21 +396,17 @@
 				<a href="https://helibenhamu.github.io/">Heli Ben-Hamu</a>,
 				<a href="https://haggaim.github.io/">Haggai Maron</a>,
 				<a href="http://www.wisdom.weizmann.ac.il/~ylipman/">Yaron Lipman</a>
-              <br>
-              <em> International Conference on Computer Vision (ICCV)</em>, 2019
-			  <br>
+				<br><div class="tag is-dark is-normal">ICCV 2019</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_surfacenets)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_surfacenets)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/1812.10705">ArXiv</a> /
 				<a href="https://github.com/nivha/surface_networks_covers">Code</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">Developing deep learning techniques for geometric data is an active and fruitful research area. This paper tackles the problem of sphere-type surface learning by developing a novel surface-to-image representation. Using this representation we are able to quickly adapt successful CNN models to the surface setting. The surface-image representation is based on a covering map from the image domain to the surface. Namely, the map wraps around the surface several times, making sure that every part of the surface is well represented in the image. Differently from previous surface-to-image representations, we provide a low distortion coverage of all surface parts in a single image. Specifically, for the use case of learning spherical signals, our representation provides a low distortion alternative to several popular spherical parameterizations used in deep learning. We have used the surface-to-image representation to apply standard CNN architectures to 3D models as well as spherical signals. We show that our method achieves state of the art or comparable results on the tasks of shape retrieval, shape classification and semantic shape segmentation.</span></div> -->
+				<br> Transforming 3D shapes to image representation so we can feed them to off-the-shelf CNNs and do classification, human-parts segmentation and more
 				</div>
-              <p>Transforming 3D shapes to image representation so we can feed them to off-the-shelf CNNs and do classification, human-parts segmentation and more</p>
             </td>
           </tr>
 
 
-		<!-- <tr onmouseout="extreme_approaches_stop()" onmouseover="extreme_approaches_start()"> -->
 		<tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
@@ -385,19 +416,9 @@
 						Your browser does not support the video tag.
 					</video>
 				</div>
-                <!-- <img src='images/extreme_approaches.png' width="160" id="extreme_approaches_image"> -->
               </div>
               <script type="text/javascript">
 			  var bibtex_extreme_approaches = "@article{haim2018extreme,\n  title={Extreme close approaches in hierarchical triple systems with comparable masses},\n  author={Haim, Niv and Katz, Boaz},\n  journal={Monthly Notices of the Royal Astronomical Society},\n  volume={479},\n  number={3},\n  pages={3155--3166},\n  year={2018},\n  publisher={Oxford University Press}\n}"
-                <!-- function extreme_approaches_start() { -->
-                  <!-- document.getElementById('extreme_approaches_image').style.display = 'inline'; -->
-				  <!-- document.getElementById('extreme_approaches_vid').style.display = 'none'; -->
-                <!-- } -->
-                <!-- function extreme_approaches_stop() { -->
-                  <!-- document.getElementById('extreme_approaches_image').style.display = 'none'; -->
-				  <!-- document.getElementById('extreme_approaches_vid').style.display = 'inline'; -->
-                <!-- } -->
-                <!-- extreme_approaches_stop() -->
               </script>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
@@ -407,16 +428,13 @@
               <br>
 				<strong>Niv Haim</strong>,
 				<a href="https://www.weizmann.ac.il/particle/katz/">Boaz Katz</a>
-              <br>
-              <em>Monthly Notices of the Royal Astronomical Society</em>, 2018
-              <br>
+				<br><div class="tag is-dark is-normal">MNRAS 2018</div>
 				<div class="btn-group">
-				<button onclick=copyToClipboard(bibtex_extreme_approaches)>BibTeX</button> / 
+				<a onclick=copyToClipboard(bibtex_extreme_approaches)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/1803.10249">ArXiv</a> / 
 				<a href="https://github.com/nivha/three_body_integration">Code</a>
-				<!-- <div class="tooltip">Abstract<span class="tooltiptext">We study close approaches in hierarchical triple systems with comparable masses using full N-body simulations, motivated by a recent model for type Ia supernovae involving direct collisions of white dwarfs (WDs). For stable hierarchical systems where the inner binary components have equal masses, we show that the ability of the inner binary to achieve very close approaches, where the separation between the components of the inner binary reaches values which are orders of magnitude smaller than the semi-major axis, can be analytically predicted from initial conditions. The rate of close approaches is found to be roughly linear with the mass of the tertiary. The rate increases in systems with unequal inner binaries by a marginal factor of ≲2 for mass ratios 0.5 &#60; m1/m2 &#62; 1 relevant for the inner white-dwarf binaries. For an average tertiary mass of ~0.3M_sun which is representative of typical M-dwarfs, the chance for clean collisions is ~1% setting challenging constraints on the collisional model for type Ia's.</span></div> -->
+				<br> Ever wondered if your hierarchical three-body system will eventually collide? find out by plugging your initial conditions into our analytical prediction formula (that works with high probability)
 				</div>
-              <p>Ever wondered if your hierarchical three-body system will eventually collide? find out by plugging your initial conditions into our analytical prediction formula (that works with high probability)</p>
             </td>
 		</tr>
 

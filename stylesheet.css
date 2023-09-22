@@ -175,3 +175,8 @@ button {
   color: black;
   border: 2px solid #e7e7e7;
 }
+
+.conf {
+	padding-top:.4em;
+	padding-bottom:.4em;
+}
