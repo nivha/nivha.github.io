@@ -43,7 +43,7 @@
             <td style="padding:2.5%;width:63%;vertical-align:middle">
               <p style="text-align:center"><name>Niv Haim</name></p>
 							<br>
-              <p>I am an AI/ML researcher at <a href="https://www.mobileye.com/">Mobileye</a>, working on ML for autonomous vehicles. 
+              <p>I am an AI/ML researcher at <a href="https://www.mobileye.com/">Mobileye</a>, working on ML for autonomous vehicles. </p><br><p>
 				I did my Ph.D. at <a href="https://www.weizmann.ac.il/pages/">Weizmann Institute of Science</a>, 
 				  advised by <a href="https://www.weizmann.ac.il/math/irani/">Prof. Michal Irani</a>, where I worked on machine learning and computer vision, 
 				  and more specifically, Generative AI and understanding memorization in neural networks.
@@ -86,6 +86,41 @@
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
+					<div class="two" id='transreco_vid'>
+					  <img width=100% height=100% src="files/transreco.png" style="background-color: white;">
+					</div>
+              </div>
+              <script type="text/javascript">
+					var bibtex_transreco = "@article{oz2024reconstructing,\n  title={Reconstructing training data from real world models trained with transfer learning},\n  author={Oz, Yakir and Yehudai, Gilad and Vardi, Gal and Antebi, Itai and Irani, Michal and Haim, Niv},\n  journal={arXiv preprint arXiv:2407.15845},\n  year={2024}\n}"
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://arxiv.org/abs/2407.15845">
+              <papertitle>Reconstructing Training Data From Real-World Models Trained with Transfer Learning</papertitle>
+              </a>
+              <br>
+				<a href="https://www.linkedin.com/in/yakir-oz-443aab172">Yakir Oz</a>,
+				<a href="https://sites.google.com/view/gyehudai/home">Gilad Yehudai</a>,
+				<a href="https://sites.google.com/view/galvardi/home">Gal Vardi</a>,
+				<a href="https://www.linkedin.com/in/itaiantebi">Itai Antebi</a>,
+				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>,
+				<strong>Niv Haim</strong>
+				<br><div class="tag is-normal">Preprint</div>
+				<div class="btn-group">
+				<a onclick=copyToClipboard(bibtex_transreco)>BibTeX</a> / 
+				<a href="https://arxiv.org/abs/2407.15845">ArXiv</a>
+				<!-- <a href="">Project Page</a> /  -->
+				<br>
+				Reconstructing training images from models trained on encodings of popular image backbones (e.g., DINO, CLIP)
+				</div>
+            </td>
+		</tr>
+
+
+
+		  <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
 					<div class="two" id='decoreco_vid'>
 					  <img width=100% height=100% src="files/multi_rec.png" style="background-color: white;">
 					</div>
@@ -101,8 +136,8 @@
               <br>
 				<a href="https://www.buzaglo.me/">Gon Buzaglo*</a>,
 				<strong>Niv Haim*</strong>,
-				<a href="https://scholar.google.com/citations?user=opVT1qkAAAAJ">Gilad Yehudai</a>,
-				<a href="https://scholar.google.com/citations?user=LVk3xE4AAAAJ">Gal Vardi</a>,
+				<a href="https://sites.google.com/view/gyehudai/home">Gilad Yehudai</a>,
+				<a href="https://sites.google.com/view/galvardi/home">Gal Vardi</a>,
 				<a href="https://www.linkedin.com/in/yakir-oz-443aab172">Yakir Oz</a>,
 				<a href="https://github.com/yanivnik/">Yaniv Nikankin</a>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
@@ -159,40 +194,6 @@
 		</tr>
 
 
-
-<!-- 		  <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-					<div class="two" id='multi_reconstruction_vid'>
-					  <img width=100% height=100% src="files/multi_rec.png" style="background-color: white;">
-					</div>
-              </div>
-              <script type="text/javascript">
-					var bibtex_multi_reconstruction = "@inproceedings{buzaglo2023reconstructing,\n  title={Reconstructing Training Data from Multiclass Neural Networks},\n  author={Buzaglo, Gon and Haim, Niv and Yehudai, Gilad and Vardi, Gal and others},\n  booktitle={ICLR\n2023 Workshop on Pitfalls of limited data and computation for Trustworthy ML}\n}"
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://openreview.net/forum?id=SBstNm4OajH">
-              <papertitle>Reconstructing Training Data from Multiclass Neural Networks</papertitle>
-              </a>
-              <br>
-				<a href="https://scholar.google.com/citations?user=YZHL8N0AAAAJ">Gon Buzaglo*</a>,
-				<strong>Niv Haim*</strong>,
-				<a href="https://scholar.google.com/citations?user=opVT1qkAAAAJ">Gilad Yehudai</a>,
-				<a href="https://scholar.google.com/citations?user=LVk3xE4AAAAJ">Gal Vardi</a>,
-				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
-              <br>
-              <em>ICLR Workshop on Pitfalls of limited data and computation for Trustworthy ML</em>, 2023
-              <br>
-				<div class="btn-group">
-				<a onclick=copyToClipboard(bibtex_multi_reconstruction)>BibTeX</a> / 
-				<a href="https://arxiv.org/abs/2305.03350">ArXiv</a> 
-				</div>
-              <p>Extends reconstruction from Multiclass classifiers and show some intriguing implications of weight decay on the ability to reconstruct training data</p>
-            </td>
-		</tr>
- -->
-
 		  <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
@@ -213,12 +214,12 @@
               </a>
               <br>
 				<strong>Niv Haim*</strong>,
-				<a href="https://scholar.google.co.il/citations?user=LVk3xE4AAAAJ&hl=en">Gal Vardi*</a>,
-				<a href="https://scholar.google.co.il/citations?user=opVT1qkAAAAJ&hl=iw">Gilad Yehudai*</a>,
+				<a href="https://sites.google.com/view/galvardi/home">Gal Vardi*</a>,
+				<a href="https://sites.google.com/view/gyehudai/home">Gilad Yehudai*</a>,
 				<a href="https://www.wisdom.weizmann.ac.il/~shamiro/">Ohad Shamir</a>,
 				<a href="https://www.weizmann.ac.il/math/irani/">Michal Irani</a>
 				<!-- <div class="conf"> NeurIPS, 2022  [<b>Oral Presentation</b>] </div> -->
-				<br><div class="tag is-dark is-normal">NeurIPS 2022</div><span class="tag is-warning">Oral</span>
+				<br><div class="tag is-dark is-normal">NeurIPS 2022</div><span class="tag is-danger">ORAL</span>
 				<div class="btn-group">
 				<a onclick=copyToClipboard(bibtex_reconstruction)>BibTeX</a> / 
 				<a href="https://arxiv.org/abs/2206.07758">ArXiv</a> / 
@@ -446,22 +447,46 @@
 
 		<hr/>
 		
-		<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading>Recorded Talks</heading>
+		<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+			<tbody>
+			  <tr>
+				<td>
+				  <heading>Recorded Talks</heading>
+				</td>
+			  </tr>
+			</tbody>
+		</table>
+		<br>
+        <!-- <table width="100%" align="center" border="0" cellpadding="20"> -->
+			<!-- <tbody> -->
+			  <!-- <tr> -->
+				<!-- <td width="75%" valign="center"> -->
+				  <!-- Reconstructing Training Data from Trained Classifiers:  -->
+						<!-- <a href="https://www.youtube.com/watch?v=sEsHNEEPegM">Long Presentation at Microsoft Data Science Bond</a> -->
+						<!-- <a href="https://www.youtube.com/watch?v=fC5xZigarvU">Short Presentation at Israeli Vision Day 2023</a> -->
+				  <!-- <br/><br/> -->
+				  <!-- Introduction to Adversarial Examples: <a href="https://www.youtube.com/watch?v=tpcYM0JOZ4s&list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv">DL4CV2021</a> / <a href="https://www.youtube.com/watch?v=KuuGnxQHnt8">DL4CV2023</a> -->
+				<!-- </td> -->
+			  <!-- </tr> -->
+			<!-- </tbody> -->
+		<!-- </table> -->
+
+<table width="100%" align="center" border="0" cellpadding="20">
+    <tbody>
+        <tr>
+            <td width="75%" valign="top">
+                <strong>Reconstructing Training Data from Trained Classifiers:</strong><br>
+                <a href="https://www.youtube.com/watch?v=sEsHNEEPegM">Long Presentation at Microsoft Data Science Bond</a><br>
+                <a href="https://www.youtube.com/watch?v=fC5xZigarvU">Short Presentation at Israeli Vision Day 2023</a>
+                <br><br>
+
+                <strong>Introduction to Adversarial Examples:</strong><br>
+                <a href="https://www.youtube.com/watch?v=tpcYM0JOZ4s&list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv">DL4CV2021</a><br>
+                <a href="https://www.youtube.com/watch?v=KuuGnxQHnt8">DL4CV2023</a>
             </td>
-          </tr>
-        </tbody></table>
-        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-		  <tr>
-            <td width="75%" valign="center">
-              <a href="https://www.youtube.com/watch?v=sEsHNEEPegM">Reconstructing Training Data from Trained Classifiers</a> @ Microsoft Data Science Bond
-              <br/><br/>
-			  <a href="https://www.youtube.com/watch?v=tpcYM0JOZ4s&list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv">Introduction to Adversarial Examples</a> @ <a href="https://dl4cv.github.io/">DL4CV2021</a>
-            </td>
-          </tr>
-        </tbody></table>
+        </tr>
+    </tbody>
+</table>
 
 
 		<hr/>
