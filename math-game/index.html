@@ -35,7 +35,16 @@ body{background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);overflow:hidden;
   <div class="grid"><div class="box">עברו: <span id="progress">0/40</span></div><button class="btn" id="timeMode">⏱ עם זמן</button></div>
   <div class="animalProgress">
     <div class="apTitle">בדרך לחיה הבאה 🐾</div>
-    <div class="meters"><div class="meter" id="plusMeter">➕ <span id="plusP">0</span>/3</div><div class="meter" id="minusMeter">➖ <span id="minusP">0</span>/3</div></div>
+    <div class="meters">
+      <div class="meterGroup">
+        <div class="meterLabel">➕</div>
+        <div class="cubes" id="plusCubes"><span class="cube"></span><span class="cube"></span><span class="cube"></span></div>
+      </div>
+      <div class="meterGroup">
+        <div class="meterLabel">➖</div>
+        <div class="cubes" id="minusCubes"><span class="cube"></span><span class="cube"></span><span class="cube"></span></div>
+      </div>
+    </div>
   </div>
   <div class="grid"><button class="btn" id="openStats">📊 סטטיסטיקות</button><div class="box" id="modeLabel">20 שניות לכל תרגיל</div></div>
   <main class="game"><div class="timer" id="timer"><div class="bar" id="bar"></div></div><div class="eq" id="eq"></div><div class="answers" id="answers"></div></main>
@@ -67,7 +76,10 @@ function requeue(){queue.push(current);shuffle(queue)}
 function choose(v,b,e){if(locked)return;locked=true;stopTimer();if(v===current.answer){b.classList.add("good");record(true);coins++;$("coins").textContent=coins;coin(e.clientX,e.clientY);passed.add(key(current));updateProgress();animalProgress(true)}else{b.classList.add("bad");record(false);animalProgress(false);requeue()}setTimeout(()=>{current=null;nextQuestion()},420)}
 function timeout(){if(locked)return;locked=true;stopTimer();bar.style.transform="scaleX(0)";record(false);animalProgress(false);requeue();setTimeout(()=>{current=null;nextQuestion()},350)}
 function animalProgress(ok){let plus=current.op==="+";if(ok){if(plus)plusP=Math.min(3,plusP+1);else minusP=Math.min(3,minusP+1)}else{if(plus)plusP=Math.max(0,plusP-1);else minusP=Math.max(0,minusP-1)}if(plusP===3&&minusP===3){addAnimal();plusP=minusP=0}updateMeters()}
-function updateMeters(){$("plusP").textContent=plusP;$("minusP").textContent=minusP;$("plusMeter").classList.toggle("done",plusP===3);$("minusMeter").classList.toggle("done",minusP===3)}
+function updateMeters(){
+    [...$("plusCubes").children].forEach((c,i)=>c.className="cube"+(i<plusP?" filled plus":""));
+    [...$("minusCubes").children].forEach((c,i)=>c.className="cube"+(i<minusP?" filled minus":""));
+  }
 function addAnimal(){let a=pool[Math.floor(Math.random()*pool.length)];animals.push(a);let e=$("empty");if(e)e.remove();let s=document.createElement("span");s.className="animal";s.textContent=a;$("animals").prepend(s)}
 function coin(x,y){let c=document.createElement("div");c.className="coin";c.textContent="🪙";c.style.left=(x-20)+"px";c.style.top=(y-20)+"px";document.body.appendChild(c);setTimeout(()=>c.remove(),750)}
 function finishStage(){stopTimer();trophies++;$("trophies").textContent=trophies;if(step===1){$("rewardIcon").textContent="🌟";$("rewardSub").textContent=timed?"עברת את כל התרגילים בזמן.":"סיימת את כל התרגילים.";$("nextStage").textContent="לעבור לפלוס ומינוס 2"}else{$("rewardIcon").textContent="🏆";$("rewardSub").textContent="סיימת גם את השלב הזה!";$("nextStage").textContent="לשחק שוב"}$("reward").classList.add("show")}
