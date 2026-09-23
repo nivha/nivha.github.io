@@ -12,8 +12,14 @@ body{background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);overflow:hidden;
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .box,.btn,.animalProgress{background:#ffffffd9;border-radius:18px;padding:8px 10px;box-shadow:0 5px 16px #783e8c1a;text-align:center;font-weight:900}
 .btn{border:0;background:linear-gradient(135deg,var(--v),var(--p));color:white;font-size:16px;min-height:44px}
-.animalProgress{padding:8px 12px}.apTitle{font-size:14px;color:var(--m);margin-bottom:6px}.meters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.meter{background:#f8efff;border-radius:14px;padding:7px;font-size:18px}.meter.done{background:var(--g)}
+.animalProgress{padding:9px 12px}.apTitle{font-size:14px;color:var(--m);margin-bottom:7px}.meters{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.meterGroup{background:#f8efff;border-radius:16px;padding:9px 8px}
+.meterLabel{font-size:22px;font-weight:900;margin-bottom:7px;line-height:1}
+.cubes{display:flex;justify-content:center;gap:8px;direction:ltr}
+.cube{display:block;width:30px;height:30px;border-radius:9px;background:#eee5f2;border:2px solid #d8c8df;box-shadow:inset 0 2px 4px #ffffffcc,0 2px 5px #783e8c1c;transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}
+.cube.filled{transform:scale(1.05)}
+.cube.filled.plus{background:linear-gradient(145deg,#ff9bd6,#ff5fb7);border-color:#ff5fb7;box-shadow:0 3px 9px #ff7fc877}
+.cube.filled.minus{background:linear-gradient(145deg,#c4a9ff,#9368ee);border-color:#9368ee;box-shadow:0 3px 9px #a978f477}
 .game{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px}
 .timer{width:min(92vw,540px);height:18px;background:#ffffffb8;border-radius:999px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--v),var(--p));transform-origin:right center}
 .eq{width:min(94vw,560px);background:#fff;border-radius:30px;text-align:center;padding:22px 10px;font-size:clamp(52px,14vw,88px);font-weight:900;direction:ltr;box-shadow:0 12px 28px #6f3d8426}
