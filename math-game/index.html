@@ -62,11 +62,11 @@ body{background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);overflow:hidden;
 (()=> {
 const pool=["🦄","🐶","🐱","🐰","🦊","🐼","🐨","🐯","🦁","🐸","🐵","🐧","🦋","🐢","🦜","🐳","🦒","🐷","🐮","🐥"];
 const SUPABASE_URL="https://tsipzmkmiazxnnfaropq.supabase.co";
-const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXB6bWttaWF6eG5uZmFyb3BxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMTY4MjMsImV4cCI6MjEwNTc5MjgyM30.0oldj_IXCAmVCTiHM-bsdNiIhP0i821EolT78Js1hI4";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_rHIENRRRmE_8oc54rRGzxA_kDedl5QI";
 const params=new URLSearchParams(location.search);
 let player=(params.get("player")||localStorage.getItem("mathGamePlayer")||"").trim();
 if(!player){
-  player=(prompt("איך קוראים לך?")||"אורח").trim()||"אורח";
+  player=(prompt("שם פרטי או כינוי:")||"אורח").trim()||"אורח";
   localStorage.setItem("mathGamePlayer",player);
 }
 const $=id=>document.getElementById(id), eq=$("eq"),answers=$("answers"),bar=$("bar"),timer=$("timer");
