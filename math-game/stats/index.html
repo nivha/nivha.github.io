@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>סטטיסטיקות משחק חשבון</title>
+<style>
+:root{--p:#ff7fc8;--v:#a978f4;--t:#5c2d68;--m:#8e6b96;--line:#efe4f3}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;color:var(--t)}
+body{background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);padding:18px}
+.wrap{max-width:900px;margin:auto}
+.card{background:#fffffff0;border-radius:24px;padding:18px;box-shadow:0 10px 30px #6f3d8420;margin-bottom:14px}
+h1{margin:0 0 8px;font-size:28px}.sub{color:var(--m);font-size:14px;line-height:1.5}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
+select,button,input{font:inherit;border-radius:14px;padding:10px 12px;border:1px solid #dfcfe6;color:var(--t);background:white}
+button{border:0;background:linear-gradient(135deg,var(--v),var(--p));color:white;font-weight:900;cursor:pointer}
+#logout{background:#eee4f2;color:var(--t)}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.summary div{background:#f8efff;border-radius:14px;padding:10px;text-align:center;font-weight:800}
+.tableWrap{overflow:auto;border-radius:16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:white;text-align:center}
+th{position:sticky;top:0;background:#f3e7ff;padding:11px 8px;font-weight:900}
+td{padding:10px 8px;border-top:1px solid var(--line);font-weight:700;white-space:nowrap}
+td:first-child{direction:ltr;font-weight:900}
+.empty{text-align:center;padding:30px;color:var(--m)}
+.login{max-width:420px;margin:12vh auto 0;text-align:center}
+.login input{width:100%;margin:12px 0}
+@media(max-width:600px){body{padding:10px}.summary{grid-template-columns:1fr}.card{padding:14px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app" hidden>
+  <div class="card">
+    <h1>📊 סטטיסטיקות משחק חשבון</h1>
+    <div class="sub">הזמן בטבלה הוא הזמן הממוצע לתשובות נכונות.</div>
+    <div class="controls">
+      <select id="playerSelect"></select>
+      <button id="refresh">רענן</button>
+      <button id="logout">שכח קוד גישה</button>
+    </div>
+    <div class="summary">
+      <div>✅ נכון: <span id="sumCorrect">0</span></div>
+      <div>❌ לא נכון: <span id="sumWrong">0</span></div>
+      <div>🕒 פעילות אחרונה: <span id="lastSeen">—</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="tableWrap">
+      <table>
+        <thead><tr><th>תרגיל</th><th>נכון</th><th>לא נכון</th><th>זמן</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden>עדיין אין נתונים להצגה.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card login" id="login" hidden>
+  <h1>כניסה לסטטיסטיקות</h1>
+  <div class="sub">הכנס את קוד הגישה הפרטי שלך.</div>
+  <input id="code" type="password" autocomplete="off" placeholder="קוד גישה">
+  <button id="loginBtn">כניסה</button>
+  <div class="sub" id="error" style="margin-top:10px"></div>
+</div>
+
+<script>
+const SUPABASE_URL="https://tsipzmkmiazxnnfaropq.supabase.co";
+const SUPABASE_KEY="sb_publishable_rHIENRRRmE_8oc54rRGzxA_kDedl5QI";
+let rows=[];
+
+function fmt(ms){
+  if(ms==null) return "—";
+  return (Number(ms)/1000).toFixed(1)+" שניות";
+}
+function fmtDate(s){
+  if(!s) return "—";
+  try{return new Date(s).toLocaleString("he-IL")}catch{return "—"}
+}
+function getToken(){
+  const p=new URLSearchParams(location.search);
+  const fromUrl=p.get("key");
+  if(fromUrl){
+    localStorage.setItem("mathGameAdminKey",fromUrl);
+    history.replaceState(null,"",location.pathname);
+    return fromUrl;
+  }
+  return localStorage.getItem("mathGameAdminKey")||"";
+}
+async function fetchStats(token){
+  const res=await fetch(SUPABASE_URL+"/rest/v1/rpc/get_math_game_stats",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY},
+    body:JSON.stringify({p_token:token})
+  });
+  if(!res.ok) throw new Error("unauthorized");
+  return await res.json();
+}
+async function load(token){
+  try{
+    rows=await fetchStats(token);
+    if(!Array.isArray(rows)) rows=[];
+    document.getElementById("login").hidden=true;
+    document.getElementById("app").hidden=false;
+    populatePlayers();
+    render();
+  }catch(e){
+    localStorage.removeItem("mathGameAdminKey");
+    document.getElementById("app").hidden=true;
+    document.getElementById("login").hidden=false;
+    document.getElementById("error").textContent="קוד הגישה לא נכון.";
+  }
+}
+function populatePlayers(){
+  const sel=document.getElementById("playerSelect");
+  const old=sel.value;
+  const players=[...new Set(rows.map(r=>r.player))].sort((a,b)=>a.localeCompare(b,"he"));
+  sel.innerHTML="";
+  if(players.length===0){
+    const o=document.createElement("option");o.value="";o.textContent="אין שחקנים";sel.appendChild(o);return;
+  }
+  players.forEach(p=>{const o=document.createElement("option");o.value=p;o.textContent=p;sel.appendChild(o)});
+  if(players.includes(old)) sel.value=old;
+}
+function render(){
+  const player=document.getElementById("playerSelect").value;
+  const data=rows.filter(r=>r.player===player);
+  const body=document.getElementById("tbody");
+  body.innerHTML="";
+  data.forEach(r=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML="<td>"+escapeHtml(r.exercise)+"</td><td>"+r.correct_count+"</td><td>"+r.wrong_count+"</td><td>"+fmt(r.avg_time_ms)+"</td>";
+    body.appendChild(tr);
+  });
+  document.getElementById("empty").hidden=data.length!==0;
+  document.getElementById("sumCorrect").textContent=data.reduce((s,r)=>s+Number(r.correct_count||0),0);
+  document.getElementById("sumWrong").textContent=data.reduce((s,r)=>s+Number(r.wrong_count||0),0);
+  const last=data.map(r=>r.last_played_at).filter(Boolean).sort().at(-1);
+  document.getElementById("lastSeen").textContent=fmtDate(last);
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+document.getElementById("playerSelect").onchange=render;
+document.getElementById("refresh").onclick=()=>load(getToken());
+document.getElementById("logout").onclick=()=>{localStorage.removeItem("mathGameAdminKey");location.reload()};
+document.getElementById("loginBtn").onclick=()=>{const t=document.getElementById("code").value.trim();if(t){localStorage.setItem("mathGameAdminKey",t);load(t)}};
+document.getElementById("code").onkeydown=e=>{if(e.key==="Enter")document.getElementById("loginBtn").click()};
+const token=getToken();
+if(token) load(token); else document.getElementById("login").hidden=false;
+</script>
+</body>
+</html>
