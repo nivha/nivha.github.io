@@ -61,6 +61,14 @@ body{background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);overflow:hidden;
 <script>
 (()=> {
 const pool=["🦄","🐶","🐱","🐰","🦊","🐼","🐨","🐯","🦁","🐸","🐵","🐧","🦋","🐢","🦜","🐳","🦒","🐷","🐮","🐥"];
+const SUPABASE_URL="https://tsipzmkmiazxnnfaropq.supabase.co";
+const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXB6bWttaWF6eG5uZmFyb3BxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMTY4MjMsImV4cCI6MjEwNTc5MjgyM30.0oldj_IXCAmVCTiHM-bsdNiIhP0i821EolT78Js1hI4";
+const params=new URLSearchParams(location.search);
+let player=(params.get("player")||localStorage.getItem("mathGamePlayer")||"").trim();
+if(!player){
+  player=(prompt("איך קוראים לך?")||"אורח").trim()||"אורח";
+  localStorage.setItem("mathGamePlayer",player);
+}
 const $=id=>document.getElementById(id), eq=$("eq"),answers=$("answers"),bar=$("bar"),timer=$("timer");
 let step=1,coins=0,trophies=0,animals=[],queue=[],current=null,passed=new Set(),locked=false,timed=true,raf=null,start=0;
 let plusP=0,minusP=0,totalCorrect=0,totalWrong=0; const LIMIT=20000, stats={};
@@ -77,10 +85,39 @@ function startTimer(){stopTimer();start=performance.now();bar.style.transform="s
 function stopTimer(){if(raf){cancelAnimationFrame(raf);raf=null}}
 function choices(){let d=current.a-current.step,u=current.a+current.step,a=[];if(d>=0&&d<=20)a.push(d);if(u>=0&&u<=20&&!a.includes(u))a.push(u);if(a.length<2){for(let x=0;x<=20&&a.length<2;x++)if(x!==current.answer&&!a.includes(x))a.push(x)}if(!a.includes(current.answer))a[0]=current.answer;return shuffle(a.slice(0,2))}
 function renderChoices(){answers.innerHTML="";choices().forEach(v=>{let b=document.createElement("button");b.className="answer";b.textContent=v;b.onclick=e=>choose(v,b,e);answers.appendChild(b)})}
-function record(ok){ensure(current);let s=stats[key(current)],elapsed=performance.now()-start;if(ok){s.correct++;s.lastCorrect=elapsed;totalCorrect++}else{s.wrong++;totalWrong++}}
+function record(ok,chosen=null){
+  ensure(current);
+  let s=stats[key(current)],elapsed=Math.round(performance.now()-start);
+  if(ok){s.correct++;s.lastCorrect=elapsed;totalCorrect++}else{s.wrong++;totalWrong++}
+  sendAttempt(ok,chosen,elapsed);
+}
+function sendAttempt(ok,chosen,elapsed){
+  const payload={
+    player:player.slice(0,80),
+    exercise:key(current),
+    operand:current.a,
+    operation:current.op,
+    step:current.step,
+    answer:current.answer,
+    chosen:chosen,
+    correct:ok,
+    elapsed_ms:elapsed,
+    timed_mode:timed
+  };
+  fetch(SUPABASE_URL+"/rest/v1/math_game_attempts",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "apikey":SUPABASE_ANON_KEY,
+      "Authorization":"Bearer "+SUPABASE_ANON_KEY,
+      "Prefer":"return=minimal"
+    },
+    body:JSON.stringify(payload)
+  }).catch(()=>{});
+}
 function requeue(){queue.push(current);shuffle(queue)}
-function choose(v,b,e){if(locked)return;locked=true;stopTimer();if(v===current.answer){b.classList.add("good");record(true);coins++;$("coins").textContent=coins;coin(e.clientX,e.clientY);passed.add(key(current));updateProgress();animalProgress(true)}else{b.classList.add("bad");record(false);animalProgress(false);requeue()}setTimeout(()=>{current=null;nextQuestion()},420)}
-function timeout(){if(locked)return;locked=true;stopTimer();bar.style.transform="scaleX(0)";record(false);animalProgress(false);requeue();setTimeout(()=>{current=null;nextQuestion()},350)}
+function choose(v,b,e){if(locked)return;locked=true;stopTimer();if(v===current.answer){b.classList.add("good");record(true,v);coins++;$("coins").textContent=coins;coin(e.clientX,e.clientY);passed.add(key(current));updateProgress();animalProgress(true)}else{b.classList.add("bad");record(false,v);animalProgress(false);requeue()}setTimeout(()=>{current=null;nextQuestion()},420)}
+function timeout(){if(locked)return;locked=true;stopTimer();bar.style.transform="scaleX(0)";record(false,null);animalProgress(false);requeue();setTimeout(()=>{current=null;nextQuestion()},350)}
 function animalProgress(ok){let plus=current.op==="+";if(ok){if(plus)plusP=Math.min(3,plusP+1);else minusP=Math.min(3,minusP+1)}else{if(plus)plusP=Math.max(0,plusP-1);else minusP=Math.max(0,minusP-1)}if(plusP===3&&minusP===3){addAnimal();plusP=minusP=0}updateMeters()}
 function updateMeters(){
     [...$("plusCubes").children].forEach((c,i)=>c.className="cube"+(i<plusP?" filled plus":""));
