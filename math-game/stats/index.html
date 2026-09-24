@@ -64,8 +64,7 @@ td:first-child{direction:ltr;font-weight:900}
 </div>
 
 <script>
-const SUPABASE_URL="https://tsipzmkmiazxnnfaropq.supabase.co";
-const SUPABASE_KEY="sb_publishable_rHIENRRRmE_8oc54rRGzxA_kDedl5QI";
+const STATS_URL="https://tsipzmkmiazxnnfaropq.supabase.co/functions/v1/math-game-stats";
 let rows=[];
 
 function fmt(ms){
@@ -87,10 +86,9 @@ function getToken(){
   return localStorage.getItem("mathGameAdminKey")||"";
 }
 async function fetchStats(token){
-  const res=await fetch(SUPABASE_URL+"/rest/v1/rpc/get_math_game_stats",{
-    method:"POST",
-    headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY},
-    body:JSON.stringify({p_token:token})
+  const res=await fetch(STATS_URL,{
+    method:"GET",
+    headers:{"x-admin-token":token}
   });
   if(!res.ok) throw new Error("unauthorized");
   return await res.json();
