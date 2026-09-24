@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>סטטיסטיקות משחק חשבון</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(155deg,#ffe4f3,#efe1ff,#fff8fc);color:#5c2d68;min-height:100vh}
+.wrap{max-width:850px;margin:auto;padding:20px}
+.card{background:#ffffffdd;border-radius:24px;padding:18px;box-shadow:0 10px 28px #6f3d8422;margin-bottom:16px}
+h1{margin:0 0 14px;text-align:center}
+.login{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+input,select,button{font:inherit;border-radius:14px;padding:11px 13px;border:1px solid #d9c8e3}
+input{min-width:230px}
+button{border:0;background:linear-gradient(135deg,#a978f4,#ff7fc8);color:#fff;font-weight:800;cursor:pointer}
+.hidden{display:none}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden}
+th{background:#f3e7ff;padding:10px 6px}
+td{padding:9px 6px;border-top:1px solid #f1e6f3;text-align:center;font-weight:700}
+td:first-child{direction:ltr}
+.msg{text-align:center;color:#966ca0;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>📊 סטטיסטיקות משחק חשבון</h1>
+    <div id="loginBox" class="login">
+      <input id="code" type="password" placeholder="קוד מנהל">
+      <button id="load">כניסה</button>
+    </div>
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <div id="dataBox" class="card hidden">
+    <div class="controls">
+      <strong>שחקן:</strong>
+      <select id="player"></select>
+    </div>
+    <table>
+      <thead><tr><th>תרגיל</th><th>נכון</th><th>לא נכון</th><th>זמן</th></tr></thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
+</div>
+<script>
+const SUPABASE_URL="https://tsipzmkmiazxnnfaropq.supabase.co";
+const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXB6bWttaWF6eG5uZmFyb3BxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMTY4MjMsImV4cCI6MjEwNTc5MjgyM30.0oldj_IXCAmVCTiHM-bsdNiIhP0i821EolT78Js1hI4";
+let rows=[];
+const $=id=>document.getElementById(id);
+function fmt(ms){return ms==null?"—":(ms/1000).toFixed(1)+" שניות"}
+async function loadStats(){
+  $("msg").textContent="טוען...";
+  const code=$("code").value.trim();
+  const r=await fetch(SUPABASE_URL+"/rest/v1/rpc/get_math_game_stats",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "apikey":SUPABASE_ANON_KEY,
+      "Authorization":"Bearer "+SUPABASE_ANON_KEY
+    },
+    body:JSON.stringify({p_code:code})
+  });
+  if(!r.ok){
+    $("msg").textContent="קוד לא נכון";
+    return;
+  }
+  rows=await r.json();
+  $("msg").textContent="";
+  $("loginBox").classList.add("hidden");
+  $("dataBox").classList.remove("hidden");
+  const players=[...new Set(rows.map(x=>x.player))].sort();
+  $("player").innerHTML=players.map(p=>'<option value="'+escapeHtml(p)+'">'+escapeHtml(p)+'</option>').join("");
+  render();
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+function render(){
+  const p=$("player").value;
+  const data=rows.filter(x=>x.player===p);
+  $("body").innerHTML=data.map(x=>'<tr><td>'+escapeHtml(x.exercise)+'</td><td>'+x.correct_count+'</td><td>'+x.wrong_count+'</td><td>'+fmt(x.last_correct_ms)+'</td></tr>').join("");
+}
+$("load").onclick=loadStats;
+$("code").addEventListener("keydown",e=>{if(e.key==="Enter")loadStats()});
+$("player").onchange=render;
+</script>
+</body>
+</html>
